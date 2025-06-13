@@ -12,7 +12,6 @@ import analyticsRoutes from "./routes/analytics.route.js";
 
 import { connectDB } from "./lib/db.js";
 
-import job from './lib/cron.js'
 
 
 
@@ -26,7 +25,6 @@ const __dirname = path.resolve();
 app.use(express.json({ limit: "10mb" })); // allows you to parse the body of the request
 app.use(cookieParser());
 
-if (process.env.NODE_ENV === 'production') job.start();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
